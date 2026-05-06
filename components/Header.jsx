@@ -102,17 +102,17 @@ export default function Header() {
                 >
                     <div className="flex flex-col gap-1.5">
                         <span
-                            className={`block w-7 h-0.5 bg-gray-800 transition-all duration-300 origin-center ${
+                            className={`block w-7 h-0.5 bg-brand-300 transition-all duration-300 origin-center ${
                                 menuOpen ? 'rotate-45 translate-y-2' : ''
                             }`}
                         />
                         <span
-                            className={`block w-7 h-0.5 bg-gray-800 transition-all duration-300 ${
+                            className={`block w-7 h-0.5 bg-brand-300 transition-all duration-300 ${
                                 menuOpen ? 'opacity-0 scale-x-0' : ''
                             }`}
                         />
                         <span
-                            className={`block w-7 h-0.5 bg-gray-800 transition-all duration-300 origin-center ${
+                            className={`block w-7 h-0.5 bg-brand-300 transition-all duration-300 origin-center ${
                                 menuOpen ? '-rotate-45 -translate-y-2' : ''
                             }`}
                         />
@@ -130,12 +130,21 @@ export default function Header() {
                     {/* Mobile Navigation */}
                     <nav className="flex flex-col space-y-1">
                         <a
+                            href="#home"
+                            onClick={handleLinkClick}
+                            className="text-gray-800 font-medium text-xl py-4 px-4 rounded-lg hover:bg-brand-50 hover:text-brand-600 transition-all"
+                        >
+                            Home
+                        </a>
+
+                        <a
                             href="#about"
                             onClick={handleLinkClick}
                             className="text-gray-800 font-medium text-xl py-4 px-4 rounded-lg hover:bg-brand-50 hover:text-brand-600 transition-all"
                         >
                             About
                         </a>
+
                         <div className="h-px bg-gray-100" />
                         <a
                             href="#properties"

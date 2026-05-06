@@ -4,7 +4,10 @@ import Image from 'next/image';
 
 export default function Hero() {
     return (
-        <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <section
+            id="home"
+            className=" relative w-full h-screen flex items-center justify-center overflow-hidden"
+        >
             <Image
                 src="/hero-house.jpg"
                 alt="Modern New Jersey home"
@@ -44,13 +47,13 @@ export default function Hero() {
                 >
                     <a
                         href="#properties"
-                        className="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-8 py-3 rounded-full transition-all"
+                        className="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-4 py-2 md:px-8 md:py-3  rounded-full transition-all text-sm md:text-base"
                     >
                         View Properties
                     </a>
                     <a
                         href="#contact"
-                        className="border-2 border-white hover:bg-white hover:text-gray-900 text-white font-semibold px-8 py-3 rounded-full transition-all"
+                        className="border-2 border-white hover:bg-white hover:text-gray-900 text-white font-semibold px-4 py-2 md:px-8 md:py-3 rounded-full transition-all text-sm md:text-base"
                     >
                         Contact Agent
                     </a>
