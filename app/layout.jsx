@@ -18,8 +18,6 @@ const baseUrl = 'https://jonadest-homes.vercel.app/';
 const ogImage = 'https://ik.imagekit.io/jonadest/og-image.jpg';
 
 export const metadata = {
-    metadataBase: new URL(baseUrl),
-
     title: 'Jonadest Home | Premier Real Estate',
     description:
         'Find your dream home with Jonadest Home. Expert agents, modern living, and a seamless buying experience.',
@@ -36,7 +34,7 @@ export const metadata = {
                 width: 1200,
                 height: 630,
                 alt: 'Jonadest Home - Premier Real Estate in New Jersey',
-                type: 'image/jpg', // 🔥 IMPORTANT
+                type: 'image/png', // 🔥 IMPORTANT
             },
         ],
         type: 'website',
@@ -49,16 +47,36 @@ export const metadata = {
         description:
             'Modern real estate agency helping you find the perfect home in New Jersey.',
         images: [ogImage],
+        creator: '@jonadesthome',
     },
 
     alternates: {
         canonical: baseUrl,
     },
+
+    robots: {
+        index: true,
+        follow: true,
+    },
+
+    keywords: [
+        'real estate',
+        'homes for sale',
+        'property listings',
+        'real estate agents',
+        'home buying',
+        'home selling',
+        'real estate market',
+        'real estate agency',
+        'real estate company',
+        'real estate services',
+    ],
 };
 
 export const viewport = {
     width: 'device-width',
     initialScale: 1,
+    maximumScale: 5,
     themeColor: '#166534',
 };
 
@@ -67,7 +85,27 @@ export default function RootLayout({ children }) {
         <html lang="en" className={poppins.variable}>
             <head>
                 <meta name="theme-color" content="#166534" />
+                {/* Favicons */}
+                <link rel="icon" href="/favicon.ico" />
+                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+                {/* Manifest */}
+                <link rel="manifest" href="/manifest.json" />
+
+                {/* Additional Social Meta Tags for WhatsApp/Facebook */}
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta
+                    property="og:image:alt"
+                    content="Delposh Beauty & Fitness"
+                />
+                <meta property="og:image:type" content="image/png" />
+                <meta
+                    name="twitter:image:alt"
+                    content="Delposh Beauty & Fitness"
+                />
             </head>
+            
             <body className="antialiased">
                 <Intro />
                 <Header />
