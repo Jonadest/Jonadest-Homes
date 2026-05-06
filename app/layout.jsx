@@ -11,10 +11,8 @@ const poppins = Poppins({
     display: 'swap',
 });
 
-const baseUrl = 'https://jonadest-homes.vercel.app/';
-
-// OG IMAGE
-const ogImage = 'https://ik.imagekit.io/jonadest/og-image.jpg';
+const baseUrl = 'https://jonadest-homes.vercel.app';
+const ogImage = `${baseUrl}/og-image.jpg`;
 
 
 export const metadata = {
