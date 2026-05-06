@@ -105,7 +105,7 @@ export default function RootLayout({ children }) {
                     content="Delposh Beauty & Fitness"
                 />
             </head>
-            
+
             <body className="antialiased">
                 <Intro />
                 <Header />
