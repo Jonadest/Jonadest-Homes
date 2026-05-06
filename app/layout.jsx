@@ -1,21 +1,42 @@
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Intro from '@/components/Intro';
 
-// Domain
+// ✅ Font
+const poppins = Poppins({
+    subsets: ['latin'],
+    weight: ['300', '400', '500', '600', '700', '800'],
+    variable: '--font-poppins',
+    display: 'swap',
+});
+
+// ✅ Domain
 const baseUrl = 'https://jonadest-homes.vercel.app';
 
-// OG Image (ImageKit CDN)
-const ogImage = 'https://ik.imagekit.io/jonadest/og-image.jpg';
+// ✅ OG Image (stored in public/ for reliability)
+const ogImage = '/og-image.jpg';
 
 export const metadata = {
     title: 'Jonadest Home | Premier Real Estate in New Jersey',
     description:
         'Find your dream home in New Jersey with Jonadest Home. Expert agents, modern living, and a seamless buying experience.',
-
+    keywords: [
+        'real estate',
+        'New Jersey',
+        'homes for sale',
+        'Jonadest Home',
+        'NJ real estate',
+        'buy home New Jersey',
+        'sell home New Jersey',
+        'real estate agent',
+        'premier real estate',
+    ],
+    authors: [{ name: 'Jonadest Home' }],
+    creator: 'Jonadest Home',
+    publisher: 'Jonadest Home',
     metadataBase: new URL(baseUrl),
-
     openGraph: {
         title: 'Jonadest Home | Premier Real Estate in New Jersey',
         description:
@@ -28,41 +49,22 @@ export const metadata = {
                 width: 1200,
                 height: 630,
                 alt: 'Jonadest Home - Premier Real Estate in New Jersey',
-                type: 'image/jpeg',
             },
         ],
         locale: 'en_US',
         type: 'website',
     },
-
     twitter: {
         card: 'summary_large_image',
         title: 'Jonadest Home | Premier Real Estate in New Jersey',
         description:
             'Modern real estate agency helping you find the perfect home in New Jersey.',
         images: [ogImage],
+        creator: '@jonadesthome',
     },
-
     alternates: {
         canonical: baseUrl,
     },
-
-    robots: {
-        index: true,
-        follow: true,
-    },
-
-    keywords: [
-        'real estate',
-        'New Jersey',
-        'homes for sale',
-        'Jonadest Home',
-        'NJ real estate',
-        'buy home New Jersey',
-        'sell home New Jersey',
-        'real estate agent',
-        'premier real estate',
-    ],
 };
 
 export const viewport = {
@@ -74,7 +76,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
+        <html lang="en" className={poppins.variable}>
             <head>
                 {/* Theme */}
                 <meta name="theme-color" content="#166534" />
@@ -109,7 +111,7 @@ export default function RootLayout({ children }) {
                 {/* Manifest */}
                 <link rel="manifest" href="/manifest.json" />
 
-                {/* SAME extras as working version */}
+                {/* Extra OG tags for WhatsApp/Facebook */}
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
                 <meta
@@ -122,10 +124,9 @@ export default function RootLayout({ children }) {
                     content="Jonadest Home - Premier Real Estate in New Jersey"
                 />
             </head>
-
             <body className="antialiased">
-                <Intro />
                 <Header />
+                <Intro />
                 {children}
                 <Footer />
             </body>
