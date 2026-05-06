@@ -6,35 +6,29 @@ import Intro from '@/components/Intro';
 // Domain
 const baseUrl = 'https://jonadesthome.com';
 
-// OG Image (ImageKit CDN) - Use JPEG and smaller size for WhatsApp compatibility
+// OG Image (MUST be public, fast, no redirects)
 const ogImage = 'https://ik.imagekit.io/jonadest/og-image.jpg';
 
 export const metadata = {
-    title: 'Jonadest Home | Premier Real Estate in New Jersey',
-    description:
-        'Find your dream home in New Jersey with Jonadest Home. Expert agents, modern living, and a seamless buying experience.',
-
     metadataBase: new URL(baseUrl),
 
-    // Standard meta for other platforms
-    other: {
-        'og:image:secure_url': ogImage,
-        'og:image:width': '1200',
-        'og:image:height': '630',
-        'og:image:type': 'image/jpeg',
-        'og:image:alt': 'Jonadest Home - Premier Real Estate in New Jersey',
+    title: {
+        default: 'Jonadest Home | Premier Real Estate in New Jersey',
+        template: '%s | Jonadest Home',
     },
+
+    description:
+        'Find your dream home in New Jersey with Jonadest Home. Expert agents, modern living, and a seamless buying experience.',
 
     openGraph: {
         title: 'Jonadest Home | Premier Real Estate in New Jersey',
         description:
-            'Modern real estate agency helping you find the perfect home in the Garden State.',
+            'Modern real estate agency helping you find the perfect home in New Jersey.',
         url: baseUrl,
         siteName: 'Jonadest Home',
         images: [
             {
                 url: ogImage,
-                secureUrl: ogImage,
                 width: 1200,
                 height: 630,
                 alt: 'Jonadest Home - Premier Real Estate in New Jersey',
@@ -50,12 +44,7 @@ export const metadata = {
         title: 'Jonadest Home | Premier Real Estate in New Jersey',
         description:
             'Modern real estate agency helping you find the perfect home in New Jersey.',
-        images: [
-            {
-                url: ogImage,
-                alt: 'Jonadest Home - Premier Real Estate in New Jersey',
-            },
-        ],
+        images: [ogImage],
     },
 
     alternates: {
@@ -75,8 +64,6 @@ export const metadata = {
         'NJ real estate',
         'buy home New Jersey',
         'sell home New Jersey',
-        'real estate agent',
-        'premier real estate',
     ],
 };
 
@@ -105,7 +92,7 @@ export default function RootLayout({ children }) {
                     content="Jonadest Home"
                 />
 
-                {/* Favicons - IMPORTANT: Keep these SMALL */}
+                {/* Favicons */}
                 <link rel="icon" href="/favicon.ico" sizes="48x48" />
                 <link
                     rel="icon"
@@ -123,25 +110,11 @@ export default function RootLayout({ children }) {
 
                 {/* Manifest */}
                 <link rel="manifest" href="/manifest.json" />
-
-                {/* WhatsApp specific meta tags */}
-                <meta property="og:image:secure_url" content={ogImage} />
-                <meta property="og:image:width" content="1200" />
-                <meta property="og:image:height" content="630" />
-                <meta property="og:image:type" content="image/jpeg" />
-                <meta
-                    property="og:image:alt"
-                    content="Jonadest Home - Premier Real Estate in New Jersey"
-                />
-                <meta
-                    name="twitter:image:alt"
-                    content="Jonadest Home - Premier Real Estate in New Jersey"
-                />
             </head>
 
             <body className="antialiased">
-                <Header />
                 <Intro />
+                <Header />
                 {children}
                 <Footer />
             </body>
