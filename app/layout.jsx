@@ -15,13 +15,13 @@ const poppins = Poppins({
 // ✅ Domain
 const baseUrl = 'https://jonadest-homes.vercel.app';
 
-
+// ✅ OG Image
 const ogImage = 'https://ik.imagekit.io/jonadest/og-image.jpg';
 
 export const metadata = {
-    title: 'Jonadest Home | Premier Real Estate in New Jersey',
+    title: 'Jonadest Home | Premier Real Estate',
     description:
-        'Find your dream home in New Jersey with Jonadest Home. Expert agents, modern living, and a seamless buying experience.',
+        'Find your dream home with Jonadest Home. Expert agents, modern living, and a seamless buying experience.',
     keywords: [
         'real estate',
         'New Jersey',
@@ -46,9 +46,11 @@ export const metadata = {
         images: [
             {
                 url: ogImage,
+                secureUrl: ogImage,
                 width: 1200,
                 height: 630,
                 alt: 'Jonadest Home - Premier Real Estate in New Jersey',
+                type: 'image/jpeg',
             },
         ],
         locale: 'en_US',
@@ -59,7 +61,12 @@ export const metadata = {
         title: 'Jonadest Home | Premier Real Estate in New Jersey',
         description:
             'Modern real estate agency helping you find the perfect home in New Jersey.',
-        images: [ogImage],
+        images: [
+            {
+                url: ogImage,
+                alt: 'Jonadest Home - Premier Real Estate in New Jersey',
+            },
+        ],
         creator: '@jonadesthome',
     },
     alternates: {
@@ -78,10 +85,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className={poppins.variable}>
             <head>
-                {/* Theme */}
                 <meta name="theme-color" content="#166534" />
-
-                {/* PWA */}
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta
                     name="apple-mobile-web-app-status-bar-style"
@@ -92,9 +96,9 @@ export default function RootLayout({ children }) {
                     content="Jonadest Home"
                 />
 
-                
-
-                {/* Extra OG tags for WhatsApp/Facebook */}
+                {/* CRITICAL: WhatsApp specific meta tags */}
+                <meta property="og:image" content={ogImage} />
+                <meta property="og:image:secure_url" content={ogImage} />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
                 <meta
@@ -102,6 +106,8 @@ export default function RootLayout({ children }) {
                     content="Jonadest Home - Premier Real Estate in New Jersey"
                 />
                 <meta property="og:image:type" content="image/jpeg" />
+
+                <meta name="twitter:image" content={ogImage} />
                 <meta
                     name="twitter:image:alt"
                     content="Jonadest Home - Premier Real Estate in New Jersey"
