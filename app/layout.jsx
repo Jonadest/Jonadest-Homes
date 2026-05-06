@@ -14,7 +14,6 @@ const poppins = Poppins({
 const baseUrl = 'https://jonadest-homes.vercel.app';
 const ogImage = `${baseUrl}/og-image.jpg`;
 
-
 export const metadata = {
     title: 'Jonadest Home | Premier Real Estate',
     description:
@@ -30,11 +29,11 @@ export const metadata = {
         siteName: 'Jonadest Home',
         images: [
             {
-                url: ogImage, // ✅ FULL URL (VERY IMPORTANT)
+                url: ogImage,
                 width: 1200,
                 height: 630,
                 alt: 'Jonadest Home - Premier Real Estate',
-                type: 'image/jpeg', // ✅ helps WhatsApp
+                type: 'image/jpeg',
             },
         ],
         locale: 'en_US',
@@ -46,7 +45,7 @@ export const metadata = {
         title: 'Jonadest Home | Premier Real Estate',
         description:
             'Modern real estate agency helping you find the perfect home in the Garden State.',
-        images: [ogImage], // ✅ FULL URL
+        images: [ogImage],
         creator: '@jonadesthomes',
     },
 
@@ -60,7 +59,6 @@ export const metadata = {
     },
 };
 
-
 export default function RootLayout({ children }) {
     return (
         <html lang="en" className={poppins.variable}>
@@ -68,6 +66,32 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href="/favicon.ico" sizes="any" />
                 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                 <link rel="manifest" href="/manifest.json" />
+
+                {/* Hardcoded OG tags for Facebook/Instagram */}
+                <meta
+                    property="og:title"
+                    content="Jonadest Home | Premier Real Estate"
+                />
+                <meta
+                    property="og:description"
+                    content="Modern real estate agency helping you find the perfect home in the Garden State."
+                />
+                <meta property="og:image" content={ogImage} />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta property="og:image:type" content="image/jpeg" />
+                <meta
+                    property="og:image:alt"
+                    content="Jonadest Home - Premier Real Estate"
+                />
+                <meta property="og:url" content={baseUrl} />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="Jonadest Home" />
+                <meta property="og:locale" content="en_US" />
+
+                {/* Facebook-specific tags */}
+                <meta property="fb:app_id" content="" />
+                <meta name="facebook-domain-verification" content="" />
             </head>
             <body className="antialiased">
                 <Intro />
