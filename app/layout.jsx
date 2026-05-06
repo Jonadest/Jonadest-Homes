@@ -6,7 +6,7 @@ import Intro from '@/components/Intro';
 // Domain
 const baseUrl = 'https://jonadesthome.com';
 
-// OG Image (ImageKit CDN)
+// OG Image (ImageKit CDN) - Use JPEG and smaller size for WhatsApp compatibility
 const ogImage = 'https://ik.imagekit.io/jonadest/og-image.jpg';
 
 export const metadata = {
@@ -15,6 +15,15 @@ export const metadata = {
         'Find your dream home in New Jersey with Jonadest Home. Expert agents, modern living, and a seamless buying experience.',
 
     metadataBase: new URL(baseUrl),
+
+    // Standard meta for other platforms
+    other: {
+        'og:image:secure_url': ogImage,
+        'og:image:width': '1200',
+        'og:image:height': '630',
+        'og:image:type': 'image/jpeg',
+        'og:image:alt': 'Jonadest Home - Premier Real Estate in New Jersey',
+    },
 
     openGraph: {
         title: 'Jonadest Home | Premier Real Estate in New Jersey',
@@ -25,6 +34,7 @@ export const metadata = {
         images: [
             {
                 url: ogImage,
+                secureUrl: ogImage,
                 width: 1200,
                 height: 630,
                 alt: 'Jonadest Home - Premier Real Estate in New Jersey',
@@ -40,7 +50,12 @@ export const metadata = {
         title: 'Jonadest Home | Premier Real Estate in New Jersey',
         description:
             'Modern real estate agency helping you find the perfect home in New Jersey.',
-        images: [ogImage],
+        images: [
+            {
+                url: ogImage,
+                alt: 'Jonadest Home - Premier Real Estate in New Jersey',
+            },
+        ],
     },
 
     alternates: {
@@ -90,21 +105,34 @@ export default function RootLayout({ children }) {
                     content="Jonadest Home"
                 />
 
-                {/* Favicons */}
-                <link rel="icon" href="/favicon.ico" />
+                {/* Favicons - IMPORTANT: Keep these SMALL */}
+                <link rel="icon" href="/favicon.ico" sizes="48x48" />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    href="/favicon-32x32.png"
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    href="/favicon-16x16.png"
+                />
                 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
                 {/* Manifest */}
                 <link rel="manifest" href="/manifest.json" />
 
-                {/* Additional Social Meta Tags for WhatsApp/Facebook */}
+                {/* WhatsApp specific meta tags */}
+                <meta property="og:image:secure_url" content={ogImage} />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
+                <meta property="og:image:type" content="image/jpeg" />
                 <meta
                     property="og:image:alt"
                     content="Jonadest Home - Premier Real Estate in New Jersey"
                 />
-                <meta property="og:image:type" content="image/jpeg" />
                 <meta
                     name="twitter:image:alt"
                     content="Jonadest Home - Premier Real Estate in New Jersey"
