@@ -16,37 +16,40 @@ const baseUrl = 'https://jonadest-homes.vercel.app/';
 // OG IMAGE
 const ogImage = 'https://ik.imagekit.io/jonadest/og-image.jpg';
 
+
 export const metadata = {
-    metadataBase: new URL(baseUrl),
     title: 'Jonadest Home | Premier Real Estate',
     description:
         'Find your dream home with Jonadest Home. Expert agents, modern living, and a seamless buying experience.',
 
+    metadataBase: new URL(baseUrl),
+
     openGraph: {
-        title: 'Jonadest Home | Premier Real Estate in New Jersey',
+        title: 'Jonadest Home | Premier Real Estate',
         description:
             'Modern real estate agency helping you find the perfect home in the Garden State.',
         url: baseUrl,
         siteName: 'Jonadest Home',
         images: [
             {
-                url: ogImage,
+                url: ogImage, // ✅ FULL URL (VERY IMPORTANT)
                 width: 1200,
                 height: 630,
-                alt: 'Jonadest Home - Premier Real Estate in New Jersey',
-                type: 'image/jpeg',
+                alt: 'Jonadest Home - Premier Real Estate',
+                type: 'image/jpeg', // ✅ helps WhatsApp
             },
         ],
-        type: 'website',
         locale: 'en_US',
+        type: 'website',
     },
 
     twitter: {
         card: 'summary_large_image',
-        title: 'Jonadest Home | Premier Real Estate in New Jersey',
+        title: 'Jonadest Home | Premier Real Estate',
         description:
-            'Modern real estate agency helping you find the perfect home in New Jersey.',
-        images: [ogImage],
+            'Modern real estate agency helping you find the perfect home in the Garden State.',
+        images: [ogImage], // ✅ FULL URL
+        creator: '@jonadesthomes',
     },
 
     alternates: {
@@ -57,27 +60,8 @@ export const metadata = {
         index: true,
         follow: true,
     },
-
-    keywords: [
-        'real estate',
-        'homes for sale',
-        'property listings',
-        'real estate agents',
-        'home buying',
-        'home selling',
-        'real estate market',
-        'real estate agency',
-        'real estate company',
-        'real estate services',
-    ],
 };
 
-export const viewport = {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    themeColor: '#166534',
-};
 
 export default function RootLayout({ children }) {
     return (
