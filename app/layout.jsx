@@ -15,8 +15,8 @@ const poppins = Poppins({
 // ✅ Domain
 const baseUrl = 'https://jonadest-homes.vercel.app';
 
-// ✅ OG Image (stored in public/ for reliability)
-const ogImage = '/og-image.jpg';
+
+const ogImage = 'https://ik.imagekit.io/jonadest/og-image.jpg';
 
 export const metadata = {
     title: 'Jonadest Home | Premier Real Estate in New Jersey',
@@ -92,24 +92,7 @@ export default function RootLayout({ children }) {
                     content="Jonadest Home"
                 />
 
-                {/* Favicons */}
-                <link rel="icon" href="/favicon.ico" sizes="48x48" />
-                <link
-                    rel="icon"
-                    type="image/png"
-                    sizes="32x32"
-                    href="/favicon-32x32.png"
-                />
-                <link
-                    rel="icon"
-                    type="image/png"
-                    sizes="16x16"
-                    href="/favicon-16x16.png"
-                />
-                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-                {/* Manifest */}
-                <link rel="manifest" href="/manifest.json" />
+                
 
                 {/* Extra OG tags for WhatsApp/Facebook */}
                 <meta property="og:image:width" content="1200" />
